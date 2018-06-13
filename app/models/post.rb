@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
     false unless ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| value.include?(bait) }
     
   def title_must_contain_click_bait
-    ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| value.include?(bait) }
+    ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| self.title.include?(bait) }
   end 
 end
 
