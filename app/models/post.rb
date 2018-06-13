@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   end 
   
   def click_bait?
-     ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| self.title.include?(bait) }
+   ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| self.title.include?(bait) }
   end 
 end
 
