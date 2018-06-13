@@ -3,8 +3,7 @@ class Post < ActiveRecord::Base
   validates :content, length { minimum: 250 }
   validates :summary, length { maximum: 250 }
   validates :category, inclusion { in: %w(Fiction, Non-Fiction)}
-  validates_each :title do |record, attribute, value|
-    false unless ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| value.include?(bait) }
+  validate :title_must_contain_click_bait
     
   def title_must_contain_click_bait
     ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| self.title.include?(bait) }
