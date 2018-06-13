@@ -7,3 +7,4 @@ class Post < ActiveRecord::Base
     false unless ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| value.include?(bait) }
 end
 
+
