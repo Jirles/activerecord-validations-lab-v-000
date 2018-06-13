@@ -4,6 +4,6 @@ class Post < ActiveRecord::Base
   validates :summary, length { maximum: 250 }
   validates :category, inclusion { in: %w(Fiction, Non-Fiction)}
   validates_each :title do |record, attribute, value|
-    record.errors.add()
+    record.errors.add(attribute, "must be click-baity")
 end
 
