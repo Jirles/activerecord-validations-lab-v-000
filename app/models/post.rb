@@ -6,9 +6,14 @@ class Post < ActiveRecord::Base
   validate :title_must_contain_click_bait
     
   def title_must_contain_click_bait
-    return false if self.title.nil?
+    if self.title.nil? || !click_bait?
+      errors.add
     
-    ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| self.title.include?(bait) }
+    
+  end 
+  
+  def click_bait?
+     ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| self.title.include?(bait) }
   end 
 end
 
