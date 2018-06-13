@@ -4,6 +4,6 @@ class Post < ActiveRecord::Base
   validates :summary, length { maximum: 250 }
   validates :category, inclusion { in: %w(Fiction, Non-Fiction)}
   validates_each :title do |record, attribute, value|
-    false unless ["Won't Believe", "Secret", "Top", "Guess"].
+    false unless ["Won't Believe", "Secret", "Top", "Guess"].any?{ |bait| 
 end
 
