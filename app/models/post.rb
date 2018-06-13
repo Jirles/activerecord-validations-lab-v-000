@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   validate :title_must_contain_click_bait
     
   def title_must_contain_click_bait
-    if self.title.nil? || !click_bait?
+    if !click_bait?
       errors.add(:title, "must be click baity")
     end 
   end 
